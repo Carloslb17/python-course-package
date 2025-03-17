@@ -14,35 +14,5 @@ help:
 install:
 	bash run.sh install
 
-lint:
-	bash run.sh lint
-
-lint-ci:
-	bash run.sh lint:ci
-
-publish-prod:
-	bash run.sh publish:prod
-
-publish-test:
-	bash run.sh publish:test
-
-release-prod:
-	bash run.sh release:prod
-
-release-test:
-	bash run.sh release:test
-
-serve-coverage-report:
-	bash run.sh serve-coverage-report
-
-test-ci:
-	bash run.sh test:ci
-
-test-quick:
-	bash run.sh test:quick
-
-test:
-	bash run.sh run-tests
-
-test-wheel-locally:
-	bash run.sh test:wheel-locally
+generate-project:
+	bash run.sh generate-project
