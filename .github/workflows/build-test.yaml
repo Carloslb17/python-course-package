@@ -42,7 +42,11 @@ jobs:
         uses: actions/setup-python@v3
         with:
           python-version: 3.8
-      - name: Lint, Format, and other static code quality checks
+      - name: Run tests
+        run: |
+          git config --global user.email "git-bot-user@pythoncourse.com"
+          git config --global user.name "git-actions-bot"
+      - name: Run tests
         run: |
           make install 
           make test
@@ -89,18 +93,18 @@ jobs:
       - name: Dump GitHub context
         id: github_context_step
         run: echo {% raw %}'${{ toJSON(github) }}' {% endraw %}
-      -  name: Dump job context
+      - name: Dump job context
         run: echo {% raw %}'${{ toJSON(job) }}' {% endraw %}
-      - na me: Dump steps context
+      - name: Dump steps context
         run: echo {% raw %}'${{ toJSON(steps) }}' {% endraw %}
-      -  name: Dump runner context
-         run: echo {% raw %}'${{ toJSON(runner) }}' {% endraw %}
-      -  name: Dump strategy context
-         run: echo {% raw %}'${{ toJSON(strategy) }}' {% endraw %}
+      - name: Dump runner context
+        run: echo {% raw %}'${{ toJSON(runner) }}' {% endraw %}
+      - name: Dump strategy context
+        run: echo {% raw %}'${{ toJSON(strategy) }}' {% endraw %}
       - name: Dump matrix context
         run: echo {% raw %}'${{ toJSON(matrix) }}' {% endraw %}
-      -  name: Dump secrets
-         run: echo {% raw %}'${{ toJSON(secrets) }}' {% endraw %}
+      - name: Dump secrets
+        run: echo {% raw %}'${{ toJSON(secrets) }}' {% endraw %}
       - name: Dump vars
         run: echo {% raw %}'${{ toJSON(vars) }}' {% endraw %}
  
