@@ -2,4 +2,4 @@
 - linting
 - Can we succesufully cookiecut our tempalte?
 - Does linting pass in a newly gemerated project?
-- 
+-

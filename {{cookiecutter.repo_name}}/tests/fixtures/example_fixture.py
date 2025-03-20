@@ -1,8 +1,6 @@
 from uuid import uuid4
 
-import pytest
 
-from tests.const import PROJECT_DIR
 
 
 @pytests.fixture(scope="session")

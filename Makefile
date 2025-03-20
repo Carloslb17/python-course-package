@@ -19,7 +19,7 @@ generate-project:
 
 # write a github actions workflow
 # execute our tests
-# run our linting. 
+# run our linting.
 
 lint:
 	bash run.sh lint
@@ -32,4 +32,3 @@ serve-coverage-report:
 
 test:
 	bash run.sh run-tests
-
