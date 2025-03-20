@@ -16,3 +16,20 @@ install:
 
 generate-project:
 	bash run.sh generate-project
+
+# write a github actions workflow
+# execute our tests
+# run our linting. 
+
+lint:
+	bash run.sh lint
+
+lint-ci:
+	bash run.sh lint:ci
+
+serve-coverage-report:
+	bash run.sh serve-coverage-report
+
+test:
+	bash run.sh run-tests
+
