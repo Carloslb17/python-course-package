@@ -4,6 +4,7 @@ set -e
 
 THIS_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
+# Add here the creation of a venv
 # install core and development Python dependencies into the currently activated venv
 function install {
     python -m pip install --upgrade pip
@@ -13,7 +14,7 @@ function install {
 function generate-project {
     cookiecutter ./ \
         --output-dir "$THIS_DIR/sample"
-
+   
     cd "$THIS_DIR/sample"
     cd $(ls)
     git init
