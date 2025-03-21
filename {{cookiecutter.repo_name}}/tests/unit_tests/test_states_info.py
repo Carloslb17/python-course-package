@@ -1,8 +1,8 @@
-"""Tests for `example_pkg.states_info`."""
+"""Tests for `{{cookiecutter.example_package }}.states_info`."""
 
 
 import pytest
-from example_pkg.states_info import (
+from {{cookiecutter.example_package }}.states_info import (
     is_city_capitol_of_state,
     slow_add,
 )

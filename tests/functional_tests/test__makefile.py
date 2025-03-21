@@ -2,7 +2,6 @@ import subprocess
 from pathlib import Path
 
 
-
 # generate a project
 def test__linting_passes(project_dir: Path):
     # Check.

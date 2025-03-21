@@ -11,16 +11,16 @@ function install {
     python -m pip install cookiecutter pytest pre-commit
 }
 
-function generate-project {
+funt+ion generate-project {
     cookiecutter ./ \
         --output-dir "$THIS_DIR/sample"
-   
+
     cd "$THIS_DIR/sample"
     cd $(ls)
     git init
     git add --all
     git branch -M main
-    git commit -m "feat: generated sample projec twith python-cookiebutter"
+    git commit -m "feat: generated sample project with python-cookiebutter"
 }
 
 
@@ -43,6 +43,44 @@ function test:quick {
 
 # execute tests against the installed package; assumes the wheel is already installed
 
+function create-repo-if-not-exists{
+    local IS_PUBLIC_REPO=${IS_PUBLIC_REPO:-false}
+    echo "Checking to see if $GITHUB_USERNAME/$REPO_NAME exists.." 
+    gh repo view "$GITHUB_USERNAME/$REPO_NAME" > /dev/null 
+    && echo  "repo exists, exiting..."
+    && return 0
+
+    
+    if [["$IS_PUBLIC_REPO" == "true"]]; then
+        PUBLIC_OR_PRIVATE="public"
+    else
+        PUBLIC_OR_PRIVATE="private"
+    fi
+
+    echo "Repository does not exist, creating..."
+    gh repo create "$GITHUB_USERNAME/$REPO_NAME" "--$IS_PUBLIC_REPO"
+}   
+
+function configure-repo {
+    
+
+}
+
+function open-pr-with-generated-project {
+
+    # Clone the repo
+    gh repo clone "$GITHUB_USERNAME/$REPO_NAME"
+
+    # delete repo contents
+    mv "$REPO_NAME/.git" "./$REPO_NAME/.git.bak"
+    rm -rf "$REPO_NAME"
+    mkdir "$REPO_NAME"
+    mv "./$REPO_NAME/.git.bak" "$REPO_NAME/.git"
+
+
+    #generate project 
+
+}
 # (example) ./run.sh test tests/test_states_info.py::test__slow_add
 function run-tests {
     python -m pytest ${@:-"$THIS_DIR/tests/"}
