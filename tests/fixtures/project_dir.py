@@ -1,3 +1,5 @@
+"Project fixture code"
+
 import shutil
 import subprocess
 from pathlib import Path
@@ -13,6 +15,7 @@ from tests.utils.project import (
 
 @pytest.fixture(scope="session")
 def project_dir() -> Path:
+    """Build templatized project"""
     test_session_id: str = generate_test_session_id()
     template_values = {
         "repo_name": f"test-repo-{test_session_id}",
@@ -28,5 +31,6 @@ def project_dir() -> Path:
 
 
 def generate_test_session_id() -> str:
+    """Generate session id"""
     test_session_id = str(uuid4())[:6]
     return test_session_id
