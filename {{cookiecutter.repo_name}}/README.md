@@ -1,20 +1,20 @@
-# {{cookiecutter.example_package }}
+# {{cookiecutter.repo_name}}
 
 ## Quick start
 
 ```bash
-pip install {{cookiecutter.example_package }}
+pip install {{cookiecutter.repo_name}}
 ```
 
 ```python
-from {{ cookiecutter.example_package }} import ...
+from {{cookiecutter.package_import_name}} import ...
 ```
 
 ## Contributing
 
 ```bash
 # clone the repo
-git clone https://github.com/phitoduck/{{cookiecutter.example_package }}.git
+git clone https://github.com/phitoduck/{{cookiecutter.repo_name}}.git
 
 # install the dev dependencies
 make install

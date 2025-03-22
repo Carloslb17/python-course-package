@@ -1,10 +1,22 @@
+"""
+Register pytest plugins, fixtures, and hooks to be used during test execution.
+
+Docs: https://stackoverflow.com/questions/34466027/in-pytest-what-is-the-use-of-conftest-py-files
+"""
+
+
 import sys
 from pathlib import Path
 
 THIS_DIR = Path(__file__).parent
-TEST_DIR_PARENT = (THIS_DIR / "../").resolve()
+TESTS_DIR_PARENT = (THIS_DIR / "..").resolve()
 
-sys.path.insert(0, str(TEST_DIR_PARENT))
+# add the parent directory of tests/ to PYTHONPATH
+# so that we can use "from tests.<module> import ..." in our tests and fixtures
+sys.path.insert(0, str(TESTS_DIR_PARENT))
 
-
-pytest_plugins = ["tests.fixtures.project_dir"]
+# module import paths to python files containing fixtures
+pytest_plugins = [
+    # e.g. "tests/fixtures/example_fixture.py" should be registered as:
+    "tests.fixtures.example_fixture",
+]
