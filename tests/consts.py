@@ -1,4 +1,4 @@
-"Constants module"
+"""Constant values, used for tests and fixtures."""
 
 from pathlib import Path
 

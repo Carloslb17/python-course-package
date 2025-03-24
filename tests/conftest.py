@@ -1,12 +1,13 @@
-"Conftest file"
+"""Pytest configuration file; is executed before test collection."""
 
 import sys
 from pathlib import Path
 
 THIS_DIR = Path(__file__).parent
-TEST_DIR_PARENT = (THIS_DIR / "../").resolve()
+TESTS_DIR_PARENT = (THIS_DIR / "..").resolve()
 
-sys.path.insert(0, str(TEST_DIR_PARENT))
+# ensure that `from tests ...` import statements work within the tests/ dir
+sys.path.insert(0, str(TESTS_DIR_PARENT))
 
-
+# register fixtures so that they can be used in tests
 pytest_plugins = ["tests.fixtures.project_dir"]
